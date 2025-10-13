@@ -1,9 +1,12 @@
 from flask import Flask, send_file, Response
+from flask_cors import CORS, cross_origin
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/calendar')
+@cross_origin(origin='*')
 def get_calendar():
     """Endpoint to return the iCal file content"""
     try:

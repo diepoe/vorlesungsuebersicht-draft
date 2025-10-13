@@ -22,7 +22,7 @@ docker-compose down
 docker build -t flask-ical-api .
 
 # Run the container
-docker run -p 5000:5000 flask-ical-api
+docker run -p 5555:5000 flask-ical-api
 ```
 
 ## Access the API
