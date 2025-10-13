@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="vorlesungsuebersicht.css" />
+    <style>
+      section.calendar {
+        display: grid;
+        grid-template-columns: 100px repeat(5, 1fr);
+        grid-template-rows: 50px repeat(10, 80px);
+        gap: 4px;
+        width: 100%;
+        max-width: 1600px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      /* Current Time Overlay */
+      .current-time-overlay {
+        position: absolute;
+        left: 100px; /* Start after time column */
+        right: 0;
+        z-index: 10;
+        pointer-events: none;
+        transition: top 0.3s ease;
+      }
+
+      .time-indicator {
+        height: 2px;
+        background-color: #ff3b30;
+        position: relative;
+        width: 100%;
+        box-shadow: 0 0 3px rgba(255, 59, 48, 0.5);
+        border-radius: 2rem;
+        opacity: .85;
+      }
+
+      .time-indicator::before {
+        content: "";
+        position: absolute;
+        left: -6px;
+        top: -6px;
+        width: 10px;
+        height: 10px;
+        background-color: #ff3b30;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 0 4px rgba(255, 59, 48, 0.5);
+      }
+
+      .time-label {
+        position: absolute;
+        left: -55px;
+        top: -10px;
+        background-color: #ff3b30;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: bold;
+        white-space: nowrap;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .header {
+        background-color: #f0f0f0;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ddd;
+      }
+
+      .time-slot {
+        grid-column: 1;
+        background-color: #f8f8f8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ddd;
+      }
+
+      .event {
+        padding: 10px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+      }
+
+      .event-1 {
+        background-color: #ffecb3;
+      }
+      .event-2 {
+        background-color: #c8e6c9;
+      }
+      .event-3 {
+        background-color: #bbdefb;
+      }
+      .event-4 {
+        background-color: #f8bbd0;
+      }
+      .event-5 {
+        background-color: #d1c4e9;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="subnav">
+      <ul>
+        <li>
+          <a href="#" style="text-decoration: underline"
+            >Wirtschaftsinformatik</a
+          >
+        </li>
+        <li><a href="#">BWL - Handel</a></li>
+        <li><a href="#">BWL - WTM</a></li>
+        <li><a href="#">BWL - DLM</a></li>
+        <li><a href="#">BWL - Food Managment</a></li>
+      </ul>
+    </nav>
+    <main>
+      <!--This is the daily overview over all courses schedule for the secretary office. It shall specially optimized for large screens-->
+
+      <!--TODO Group by courses or by rooms-->
+      <section class="calendar-metadata">
+        <h1>Tagesplan - Montag, 12. Februar 2024</h1>
+        <div class="calendar-controls">
+          <button class="calendar-control">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5 8.25 12l7.5-7.5"
+              ></path>
+            </svg>
+          </button>
+          <button class="calendar-control">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m8.25 4.5 7.5 7.5-7.5 7.5"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </section>
+      <section class="calendar">
+        <!-- Current Time Overlay -->
+        <div class="current-time-overlay" id="currentTimeOverlay">
+          <div class="time-indicator"></div>
+          <div class="time-label" id="currentTimeLabel"></div>
+        </div>
+
+        <!-- Headers -->
+        <div class="header">Time</div>
+        <div class="header">Room A101</div>
+        <div class="header">Room B205</div>
+        <div class="header">Room C310</div>
+        <div class="header">Lab D150</div>
+        <div class="header">Auditorium</div>
+
+        <!-- Time slots -->
+        <div class="time-slot">8:00 - 9:30</div>
+        <div class="event event-1" style="grid-column: 2; grid-row: 2">
+          <strong>Web Development</strong><br />
+          Prof. Schmidt<br />
+          CS-201
+        </div>
+        <div class="event event-3" style="grid-column: 4; grid-row: 2">
+          <strong>Database Systems</strong><br />
+          Prof. Garcia<br />
+          CS-305
+        </div>
+        <div class="event event-5" style="grid-column: 6; grid-row: 2/4">
+          <strong>Department Meeting</strong><br />
+          Dean Williams<br />
+          All Faculty
+        </div>
+
+        <div class="time-slot">9:45 - 11:15</div>
+        <div class="event event-2" style="grid-column: 2; grid-row: 3">
+          <strong>Algorithms</strong><br />
+          Prof. Johnson<br />
+          CS-202
+        </div>
+        <div class="event event-4" style="grid-column: 3; grid-row: 3/5">
+          <strong>Machine Learning Workshop</strong><br />
+          Dr. Lee<br />
+          CS-450
+        </div>
+
+        <div class="time-slot">11:30 - 13:00</div>
+        <div class="event event-1" style="grid-column: 2; grid-row: 4">
+          <strong>Software Engineering</strong><br />
+          Prof. Miller<br />
+          CS-301
+        </div>
+        <div class="event event-3" style="grid-column: 5; grid-row: 4/6">
+          <strong>Computer Graphics Lab</strong><br />
+          Dr. Chen<br />
+          CS-410
+        </div>
+
+        <div class="time-slot">13:15 - 14:45</div>
+        <div class="event event-2" style="grid-column: 2/4; grid-row: 5">
+          <strong>Capstone Project Presentations</strong><br />
+          Various Faculty<br />
+          CS-499
+        </div>
+
+        <div class="time-slot">15:00 - 16:30</div>
+        <div class="event event-5" style="grid-column: 2; grid-row: 6">
+          <strong>Mobile Development</strong><br />
+          Prof. Thompson<br />
+          CS-355
+        </div>
+        <div class="event event-1" style="grid-column: 4; grid-row: 6/8">
+          <strong>AI Seminar</strong><br />
+          Prof. Roberts<br />
+          CS-480
+        </div>
+        <div class="event event-3" style="grid-column: 6; grid-row: 6">
+          <strong>Research Symposium</strong><br />
+          Multiple Presenters<br />
+          Graduate Students
+        </div>
+
+        <div class="time-slot">16:45 - 18:15</div>
+        <div class="event event-2" style="grid-column: 2; grid-row: 7">
+          <strong>Network Security</strong><br />
+          Dr. Wilson<br />
+          CS-405
+        </div>
+        <div class="event event-4" style="grid-column: 3; grid-row: 7">
+          <strong>Cloud Computing</strong><br />
+          Prof. Davis<br />
+          CS-380
+        </div>
+
+        <div class="time-slot">18:30 - 20:00</div>
+        <div class="event event-3" style="grid-column: 2; grid-row: 8">
+          <strong>Evening Lecture</strong><br />
+          Guest Speaker<br />
+          Open Event
+        </div>
+        <div class="event event-5" style="grid-column: 6; grid-row: 8/10">
+          <strong>Hackathon</strong><br />
+          Student Club<br />
+          All Students
+        </div>
+
+        <div class="time-slot">20:15 - 21:45</div>
+        <div class="event event-4" style="grid-column: 3/5; grid-row: 9">
+          <strong>Graduate Seminar</strong><br />
+          Prof. Anderson<br />
+          CS-600
+        </div>
+
+        <div class="time-slot">22:00 - 23:30</div>
+        <div class="event event-1" style="grid-column: 2; grid-row: 10">
+          <strong>Late Study Session</strong><br />
+          Teaching Assistants<br />
+          All Students
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function updateCurrentTimeOverlay() {
+        const now = new Date();
+        const currentHour = now.getHours();
+        const currentMinute = now.getMinutes();
+
+        // Calculate total minutes since start of day
+        const totalMinutes = currentHour * 60 + currentMinute;
+
+        // Schedule starts at 8:00 AM (480 minutes) and ends at 23:30 (1410 minutes)
+        const scheduleStart = 8 * 60; // 8:00 AM in minutes
+        const scheduleEnd = 23.5 * 60; // 23:30 in minutes
+
+        const overlay = document.getElementById("currentTimeOverlay");
+        const timeLabel = document.getElementById("currentTimeLabel");
+
+        // Format time for display
+        const timeString = now.toLocaleTimeString("de-DE", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        });
+        timeLabel.textContent = timeString;
+
+        // Only show overlay during schedule hours
+        if (totalMinutes >= scheduleStart && totalMinutes <= scheduleEnd) {
+          overlay.style.display = "block";
+
+          // Calculate position within the schedule
+          const scheduleProgress =
+            (totalMinutes - scheduleStart) / (scheduleEnd - scheduleStart);
+
+          // Grid starts at row 2 (after header), has 10 rows of 80px each plus gaps
+          const headerHeight = 50 + 4; // header height + gap
+          const rowHeight = 80 + 4; // row height + gap
+          const totalScheduleHeight = 10 * rowHeight;
+
+          // Calculate pixel position
+          const pixelPosition =
+            headerHeight + scheduleProgress * totalScheduleHeight;
+
+          overlay.style.top = pixelPosition + "px";
+        } else {
+          // Hide overlay outside schedule hours
+          overlay.style.display = "none";
+        }
+      }
+
+      // Update immediately
+      updateCurrentTimeOverlay();
+
+      // Update every minute
+      setInterval(updateCurrentTimeOverlay, 60000);
+
+      // Update every second for smooth real-time updates (optional - can be changed to every minute for performance)
+      setInterval(updateCurrentTimeOverlay, 1000);
+    </script>
+  </body>
+</html>

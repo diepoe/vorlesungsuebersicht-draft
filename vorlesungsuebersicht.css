@@ -1,0 +1,560 @@
+/*
+    CSS Code für die Vorlesungsübersicht
+    Dietrich Poensgen & Mikail Mert Demirel
+*/
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/* Ensure the footer is always at the bottom of the page*/
+body {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+  padding: 1rem;
+}
+
+/* Course Grid Styling */
+.course-grid {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1.5rem;
+  min-height: 60vh;
+}
+
+.grid-item {
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.grid-item:hover {
+  background: lightgray;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px gray;
+}
+
+.grid-item:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px gray;
+}
+
+/* Mobile responsive grid */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
+
+/* TODO Header Platzhalter */
+header,
+footer {
+  width: 100%;
+  height: 3rem;
+  background: lightgray;
+  text-align: center;
+}
+
+:root {
+  /* DHBW theme colors */
+  --tandem-primary-100: #fde6ea;
+  --tandem-primary-200: #f8c9d0;
+  --tandem-primary-300: #f2aab5;
+  --tandem-primary-400: #eb8b99;
+  --tandem-primary-500: #c8102e;
+  --tandem-primary-600: #a50d26;
+  --tandem-primary-700: #7f0a1d;
+  --tandem-primary-800: #5a0714;
+  --tandem-primary-900: #35050c;
+}
+
+/* Secondary Navigation Bar to navigate "Studiengänge" */
+nav.subnav {
+  width: 100%;
+  background: lightgray;
+  padding: 0.5rem 0;
+}
+
+nav.subnav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+nav.subnav > ul > li {
+  list-style-type: none;
+}
+
+nav.subnav a {
+  text-decoration: none;
+  color: #080808;
+}
+
+/* Calendar */
+section.calendar-metadata {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+div.calendar-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button.calendar-control {
+  display: grid;
+  place-items: center;
+  background: none;
+  border: none;
+}
+
+button.calendar-control svg {
+  color: #000;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* view-plan */
+.plan-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: var(--tandem-primary-600);
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: var(--tandem-primary-500);
+  background: var(--tandem-primary-100);
+  border-radius: 8px;
+  border: 1px solid var(--tandem-primary-300);
+}
+
+.course-info {
+  background: var(--tandem-primary-100);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--tandem-primary-300);
+  margin-bottom: 2rem;
+}
+
+.course-info h2 {
+  color: var(--tandem-primary-800);
+  margin-bottom: 0.5rem;
+}
+
+.course-info p {
+  color: var(--tandem-primary-700);
+  margin-bottom: 1rem;
+}
+
+.course-meta {
+  display: flex;
+  gap: 2rem;
+  font-weight: bold;
+  color: var(--tandem-primary-600);
+}
+
+/* Class View Styling */
+.class-info {
+  background: var(--tandem-primary-100);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--tandem-primary-300);
+  margin-bottom: 2rem;
+}
+
+.class-info h2 {
+  color: var(--tandem-primary-800);
+  margin-bottom: 0.5rem;
+  flex-basis: 100%;
+}
+
+.class-info p {
+  color: var(--tandem-primary-700);
+  margin-bottom: 1rem;
+}
+
+.class-meta {
+  width: 100%;
+  display: flex;
+  gap: .5rem;
+  font-weight: bold;
+  color: var(--tandem-primary-600);
+}
+
+/* Accordion Styling */
+.accordion-container {
+  margin-bottom: 2rem;
+}
+
+.accordion-section {
+  border: none;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 993px) {
+  .accordion-section {
+    border: 1px solid var(--tandem-primary-300);
+    border-radius: 8px;
+  }
+}
+
+.accordion-header {
+  background: var(--tandem-primary-100);
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.accordion-header:hover {
+  background: var(--tandem-primary-200);
+}
+
+.accordion-header h3 {
+  margin: 0;
+  color: var(--tandem-primary-800);
+}
+
+.accordion-toggle {
+  font-size: 1.2rem;
+  color: var(--tandem-primary-600);
+  transition: transform 0.3s ease;
+}
+
+.accordion-toggle svg {
+  color: var(--tandem-primary-600);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.accordion-content {
+  transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+  overflow: hidden;
+  background: white;
+}
+
+.accordion-content.expanded {
+  max-height: 3000px;
+  padding: 1rem 0;
+}
+
+@media screen and (min-width: 993px) {
+  .accordion-content.expanded {
+    padding: 1rem;
+  }
+}
+
+.accordion-content.collapsed {
+  max-height: 0;
+  padding: 0 1.5rem;
+}
+
+.modules-overview {
+  margin-bottom: 2rem;
+}
+
+.modules-overview h3 {
+  color: var(--tandem-primary-800);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--tandem-primary-300);
+  padding-bottom: 0.5rem;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.module-card {
+  background: white;
+  border: 1px solid var(--tandem-primary-300);
+  border-left: 4px solid var(--tandem-primary-500);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.module-name {
+  font-weight: bold;
+  color: var(--tandem-primary-800);
+  margin-bottom: 0.5rem;
+}
+
+.module-details {
+  color: var(--tandem-primary-600);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.module-credits {
+  color: var(--tandem-primary-700);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.weeks-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media screen and (min-width: 993px) {
+  .weeks-timeline {
+    gap: 2rem;
+  }
+}
+
+.week-timeline {
+  background: white;
+  border: 1px solid var(--tandem-primary-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.week-timeline h4 {
+  color: var(--tandem-primary-800);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--tandem-primary-200);
+}
+
+.sessions-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .sessions-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 993px) {
+  .sessions-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.day-group {
+  background: var(--tandem-primary-100);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.day-group h5 {
+  color: var(--tandem-primary-800);
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--tandem-primary-300);
+  padding-bottom: 0.25rem;
+}
+
+.session-item {
+  background: white;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-left: 3px solid var(--tandem-primary-300);
+  font-size: 0.85rem;
+}
+
+.session-item:last-child {
+  margin-bottom: 0;
+}
+
+.session-item.past-session {
+  opacity: 0.5;
+}
+
+.session-item.vorlesung {
+  border-left-color: var(--tandem-primary-500);
+}
+
+.session-item.praktikum {
+  border-left-color: var(--tandem-primary-400);
+}
+
+.session-item.projekt {
+  border-left-color: var(--tandem-primary-600);
+}
+
+.session-time {
+  font-weight: bold;
+  color: var(--tandem-primary-800);
+  margin-bottom: 0.25rem;
+}
+
+.session-module {
+  font-weight: bold;
+  color: var(--tandem-primary-700);
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.session-topic {
+  color: var(--tandem-primary-800);
+  margin-bottom: 0.25rem;
+}
+
+.session-room {
+  color: var(--tandem-primary-600);
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.session-assignment {
+  background: var(--tandem-primary-200);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  color: var(--tandem-primary-800);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.semester-overview h3 {
+  color: var(--tandem-primary-800);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--tandem-primary-300);
+  padding-bottom: 0.5rem;
+}
+
+.weeks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.week-block {
+  background: white;
+  border: 1px solid var(--tandem-primary-300);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.week-block h4 {
+  color: var(--tandem-primary-800);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--tandem-primary-200);
+}
+
+.week-item {
+  background: var(--tandem-primary-100);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-left: 4px solid var(--tandem-primary-300);
+}
+
+.week-item:last-child {
+  margin-bottom: 0;
+}
+
+.week-item.lecture {
+  border-left-color: var(--tandem-primary-500);
+}
+
+.week-item.practical {
+  border-left-color: var(--tandem-primary-400);
+}
+
+.item-date {
+  font-size: 0.9rem;
+  color: var(--tandem-primary-600);
+  margin-bottom: 0.25rem;
+}
+
+.item-topic {
+  font-weight: bold;
+  color: var(--tandem-primary-800);
+  margin-bottom: 0.25rem;
+}
+
+.item-type {
+  font-size: 0.85rem;
+  color: var(--tandem-primary-700);
+  text-transform: capitalize;
+  margin-bottom: 0.25rem;
+}
+
+.item-assignment {
+  font-size: 0.85rem;
+  color: var(--tandem-primary-600);
+  background: var(--tandem-primary-200);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
