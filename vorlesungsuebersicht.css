@@ -243,7 +243,7 @@ button.calendar-control svg {
 .class-meta {
   width: 100%;
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
   font-weight: bold;
   color: var(--tandem-primary-600);
 }
@@ -377,9 +377,16 @@ button.calendar-control svg {
 
 .week-timeline {
   background: white;
-  border: 1px solid var(--tandem-primary-300);
-  border-radius: 8px;
-  padding: 1.5rem;
+  border: none;
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 993px) {
+  .weeks-timeline {
+    border: 1px solid var(--tandem-primary-300);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
 }
 
 .week-timeline h4 {

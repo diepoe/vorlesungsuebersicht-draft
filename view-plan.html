@@ -191,8 +191,20 @@
             },
             {
               week: 2,
-              startDate: "2025-10-14",
+              startDate: "2025-10-13",
               sessions: [
+                {
+                  date: "2025-10-13",
+                  time: "9:00-12:15",
+                  module: "MATH",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-13",
+                  time: "12:15-16:30",
+                  module: "WEB",
+                  room: "C2.02",
+                },
                 {
                   date: "2025-10-14",
                   time: "08:00-09:30",
@@ -385,6 +397,16 @@
         return sessionDate < today;
       }
 
+      function isToday(dateString) {
+        const sessionDate = new Date(dateString);
+        const today = new Date();
+
+        sessionDate.setHours(0, 0, 0, 0);
+        today.setHours(0, 0, 0, 0);
+
+        return sessionDate.getTime() === today.getTime();
+      }
+
       function formatRoom(room) {
         if (room === "Online") {
           return `<mark>${room}</mark>`;
@@ -403,6 +425,16 @@
         today.setHours(0, 0, 0, 0);
 
         return endDate < today;
+      }
+
+      function scrollToCurrentDay() {
+        const currentDayElement = document.getElementById("current-day");
+        if (currentDayElement) {
+          currentDayElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }
       }
 
       function renderModules(modules) {
@@ -510,6 +542,10 @@
           const dayDiv = document.createElement("div");
           dayDiv.className = "day-group";
 
+          if (isToday(sessions[0].date)) {
+            dayDiv.id = "current-day";
+          }
+
           const dayHeader = document.createElement("h5");
           dayHeader.textContent = formatDayHeader(sessions[0].date);
           dayDiv.appendChild(dayHeader);
@@ -600,6 +636,10 @@
         renderModules(classData.modules);
         renderClassWeeks(classData.weeks, classData.modules);
         initializeAccordions();
+
+        setTimeout(() => {
+          scrollToCurrentDay();
+        }, 100);
       }
 
       function storeClassInLocalStorage(classData) {
