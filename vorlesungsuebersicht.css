@@ -42,7 +42,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Regular.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Regular.ttf")
     format("truetype");
   font-weight: 400;
   font-style: normal;
@@ -51,7 +51,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Italic.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Italic.ttf")
     format("truetype");
   font-weight: 400;
   font-style: italic;
@@ -60,7 +60,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-ExtraLight.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-ExtraLight.ttf")
     format("truetype");
   font-weight: 200;
   font-style: normal;
@@ -69,7 +69,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-ExtraLightItalic.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-ExtraLightItalic.ttf")
     format("truetype");
   font-weight: 200;
   font-style: italic;
@@ -78,7 +78,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Light.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Light.ttf")
     format("truetype");
   font-weight: 300;
   font-style: normal;
@@ -87,7 +87,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-LightItalic.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-LightItalic.ttf")
     format("truetype");
   font-weight: 300;
   font-style: italic;
@@ -96,7 +96,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Medium.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Medium.ttf")
     format("truetype");
   font-weight: 500;
   font-style: normal;
@@ -105,7 +105,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-MediumItalic.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-MediumItalic.ttf")
     format("truetype");
   font-weight: 500;
   font-style: italic;
@@ -114,7 +114,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-SemiBold.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-SemiBold.ttf")
     format("truetype");
   font-weight: 600;
   font-style: normal;
@@ -123,7 +123,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-SemiBoldItalic.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-SemiBoldItalic.ttf")
     format("truetype");
   font-weight: 600;
   font-style: italic;
@@ -132,7 +132,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Bold.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Bold.ttf")
     format("truetype");
   font-weight: 700;
   font-style: normal;
@@ -141,7 +141,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-BoldItalic.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-BoldItalic.ttf")
     format("truetype");
   font-weight: 700;
   font-style: italic;
@@ -150,7 +150,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-ExtraBold.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-ExtraBold.ttf")
     format("truetype");
   font-weight: 800;
   font-style: normal;
@@ -159,7 +159,7 @@ a {
 
 @font-face {
   font-family: "Atkinson Hyperlegible Next";
-  src: url("./public/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-ExtraBoldItalic.ttf")
+  src: url("./assets/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-ExtraBoldItalic.ttf")
     format("truetype");
   font-weight: 800;
   font-style: italic;

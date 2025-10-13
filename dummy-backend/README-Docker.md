@@ -27,8 +27,8 @@ docker run -p 5555:5000 flask-ical-api
 
 ## Access the API
 
-- API Root: http://localhost:5000/
-- Calendar endpoint: http://localhost:5000/calendar
+- API Root: <http://localhost:5000/>
+- Calendar endpoint: <http://localhost:5000/calendar>
 
 ## Development
 
