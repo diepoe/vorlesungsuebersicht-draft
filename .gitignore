@@ -43,6 +43,7 @@ yarn-error.log*
 .eslintcache
 
 # Misc
+__pycache__
 .cache
 .tmp
 .temp
