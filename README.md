@@ -7,8 +7,8 @@ docker-compose up --build
 ```
 
 ### Dummy endpoints
-- http://localhost:5000/ (root)
-- http://localhost:5000/calendar (iCal endpoint)
+- http://localhost:5555/ (root)
+- http://localhost:5555/calendar (iCal endpoint)
 
 ## Autoren
 
