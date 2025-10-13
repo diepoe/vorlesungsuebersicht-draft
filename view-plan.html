@@ -245,8 +245,14 @@
             },
             {
               week: 3,
-              startDate: "2025-10-21",
+              startDate: "2025-10-20",
               sessions: [
+                {
+                  date: "2025-10-20",
+                  time: "9:00-12:15",
+                  module: "BWL",
+                  room: "C2.02",
+                },
                 {
                   date: "2025-10-21",
                   time: "08:00-09:30",
@@ -338,7 +344,13 @@
         },
       };
 
-      function mockAPIFetch(classId) {
+      async function mockAPIFetch(classId) {
+        /* const apiCall = await fetch(
+          "https://rapla.dhbw.de/rapla/ical?key=e9U66lekDXL6sG639VTK69wZiKdfo2rPh6BxyWKXodBkdReTGOQGrZVRilYXYBV8-r4lqwlGfF18DgUBFOBwmiJyYRjQeQRkhJZkyn9AKdCuT35E6HT1mocxgwzDrjez&salt=953482152"
+        );
+
+        console.log(apicall.response);*/
+
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             const classData = MOCK_CLASS_SCHEDULES[classId];
@@ -399,12 +411,26 @@
 
       function isToday(dateString) {
         const sessionDate = new Date(dateString);
-        const today = new Date();
+        const targetDate = getScrollTargetDate();
 
         sessionDate.setHours(0, 0, 0, 0);
-        today.setHours(0, 0, 0, 0);
+        targetDate.setHours(0, 0, 0, 0);
 
-        return sessionDate.getTime() === today.getTime();
+        return sessionDate.getTime() === targetDate.getTime();
+      }
+
+      function getScrollTargetDate() {
+        const today = new Date();
+        const dayOfWeek = today.getDay();
+
+        if (dayOfWeek === 0 || dayOfWeek === 6) {
+          const daysUntilMonday = dayOfWeek === 0 ? 1 : 2;
+          const nextMonday = new Date(today);
+          nextMonday.setDate(today.getDate() + daysUntilMonday);
+          return nextMonday;
+        }
+
+        return today;
       }
 
       function formatRoom(room) {
@@ -480,7 +506,7 @@
 
         if (pastWeeks.length > 0) {
           const pastWeeksSection = document.createElement("div");
-          pastWeeksSection.className = "accordion-section";
+          pastWeeksSection.className = "accordion-section past-weeks-section";
 
           const pastWeeksHeader = document.createElement("div");
           pastWeeksHeader.className = "accordion-header collapsed";
