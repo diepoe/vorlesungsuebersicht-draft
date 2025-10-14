@@ -9,7 +9,7 @@ import {
 async function fetchPlanData(classId) {
   // Original URL: "https://rapla.dhbw.de/rapla/ical?key=e9U66lekDXL6sG639VTK69wZiKdfo2rPh6BxyWKXodBkdReTGOQGrZVRilYXYBV8-r4lqwlGfF18DgUBFOBwmiJyYRjQeQRkhJZkyn9AKdCuT35E6HT1mocxgwzDrjez&salt=953482152"
   const apiCall = {
-    response: await fetch("http://localhost:5555/calendar", {
+    response: await fetch(`http://localhost:5555/calendar?course=${encodeURIComponent(classId)}`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
