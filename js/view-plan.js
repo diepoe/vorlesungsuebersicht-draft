@@ -1,5 +1,11 @@
 import ICAL from "https://unpkg.com/ical.js/dist/ical.min.js";
 
+import {
+  formatEventTime,
+  formatDayHeader,
+  formatRoom,
+} from "./util/formatters.js";
+
 async function fetchPlanData(classId) {
   // Original URL: "https://rapla.dhbw.de/rapla/ical?key=e9U66lekDXL6sG639VTK69wZiKdfo2rPh6BxyWKXodBkdReTGOQGrZVRilYXYBV8-r4lqwlGfF18DgUBFOBwmiJyYRjQeQRkhJZkyn9AKdCuT35E6HT1mocxgwzDrjez&salt=953482152"
   const apiCall = {
@@ -14,7 +20,6 @@ async function fetchPlanData(classId) {
   const responseBody = await apiCall.response.text();
 
   var jcalData = ICAL.parse(responseBody);
-  console.log(jcalData);
   var comp = new ICAL.Component(jcalData);
   var vevents = comp.getAllSubcomponents("vevent");
 
@@ -22,7 +27,6 @@ async function fetchPlanData(classId) {
 
   for (const vevent of vevents) {
     var evt = new ICAL.Event(vevent);
-    console.info(evt);
     parsedEvents.push(evt);
   }
 
@@ -38,12 +42,13 @@ function transformEventsToClassData(icalEvents) {
     weeks: groupEventsByWeek(icalEvents),
   };
 
-  // Extract course ID (e.g., "HN-WWI24A3") from the description
-  console.info(icalEvents[0].description);
-  const courseIdMatch = icalEvents[0].description.match(/HN-[A-Z]{2,3}\d{2}[A-Z]\d/);
+  // TODO Extract course ID (e.g., "HN-WWI24A3") from the description
+  //console.info(icalEvents[0].description);
+  const courseIdMatch = icalEvents[0].description.match(
+    /HN-[A-Z]{2,3}\d{2}[A-Z]\d/
+  );
   if (courseIdMatch) {
     classData.id = courseIdMatch[0];
-    console.log(courseIdMatch);
   }
 
   return classData;
@@ -84,7 +89,7 @@ function extractModulesFromEvents(icalEvents) {
     if (moduleCode && !moduleMap.has(moduleCode)) {
       moduleMap.set(moduleCode, {
         id: moduleCode,
-        name: getModuleNameFromCode(moduleCode),
+        name: moduleCode,
         professor: "UNKNOWN", // TODO: map professor/teacher from separatly fetched module dataset
         credits: 5,
         color: moduleColors[colorIndex % moduleColors.length],
@@ -96,23 +101,13 @@ function extractModulesFromEvents(icalEvents) {
   return Array.from(moduleMap.values());
 }
 
-function getModuleNameFromCode(code) {
-  const moduleNames = {
-    WEB: "Webentwicklung",
-    DB: "Datenbanken",
-    MATH: "Mathematik",
-    BWL: "Betriebswirtschaftslehre",
-    "IT-MGMT": "IT-Management",
-  };
-  return moduleNames[code] || code;
-}
-
 /**
  *
- * @param {[ICAL.Event]} icalEvents
- * @returns
+ * @param {[ICAL.Event]} icalEvents parsed event list
+ * @returns {Array<Object>} filtered list of parsed events grouped by week
  */
 function groupEventsByWeek(icalEvents) {
+  // TODO filter weeks: only include relevant weeks from the current semester (to be loaded from database)
   const weekMap = new Map();
 
   icalEvents.forEach((event) => {
@@ -158,43 +153,10 @@ function getWeekNumber(date) {
   return Math.ceil((days + start.getDay() + 1) / 7);
 }
 
-function formatEventTime(event) {
-  const start = event.startDate.toJSDate();
-  const end = event.endDate.toJSDate();
-
-  const formatTime = (date) => {
-    return date.toLocaleTimeString("de-DE", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    });
-  };
-
-  return `${formatTime(start)}-${formatTime(end)}`;
-}
-
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("de-DE", {
-    weekday: "short",
-    day: "2-digit",
-    month: "2-digit",
-  });
-}
-
 function getDayName(dateString) {
   const date = new Date(dateString);
   return date.toLocaleDateString("de-DE", {
     weekday: "long",
-  });
-}
-
-function formatDayHeader(dateString) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("de-DE", {
-    weekday: "long",
-    day: "2-digit",
-    month: "2-digit",
   });
 }
 
@@ -208,15 +170,32 @@ function getModuleName(modules, moduleId) {
   return module ? module.name : moduleId;
 }
 
-function isDateInPast(dateString) {
+/**
+ * Checks if a session date and time are in the past
+ * @param {string} dateString - ISO date string (YYYY-MM-DD)
+ * @param {string} timeString - Time range in format "HH:MM-HH:MM"
+ * @returns {boolean} - True if the session end time is in the past
+ */
+function isDateInPast(dateString, timeString) {
   const sessionDate = new Date(dateString);
-  const today = new Date();
+  const now = new Date();
 
-  // Set both dates to start of day for accurate comparison
-  sessionDate.setHours(0, 0, 0, 0);
-  today.setHours(0, 0, 0, 0);
+  // If the date is clearly in the past, return early
+  if (sessionDate.setHours(23, 59, 59) < now) {
+    return true;
+  }
 
-  return sessionDate < today;
+  // Extract the end time from timeString (format: "09:45-12:15")
+  const endTimeStr = timeString.split("-")[1];
+  if (!endTimeStr) return false;
+
+  const [hours, minutes] = endTimeStr.split(":").map(Number);
+
+  // Create date object with the session date and end time
+  const sessionEndTime = new Date(dateString);
+  sessionEndTime.setHours(hours, minutes, 0, 0);
+
+  return sessionEndTime < now;
 }
 
 function isToday(dateString) {
@@ -241,19 +220,6 @@ function getScrollTargetDate() {
   }
 
   return today;
-}
-
-/**
- * Mark all occasions where a event location is set to "Online"
- *
- * @param {string} room the location (room) where the event takes place
- * @returns the formatted room string
- */
-function formatRoom(room) {
-  if (room.includes("Online")) {
-    return `<mark>${room}</mark>`;
-  }
-  return room;
 }
 
 function isWeekInPast(weekStartDate) {
@@ -394,7 +360,7 @@ function renderWeekContent(week, modules) {
       const sessionDiv = document.createElement("div");
       sessionDiv.className = `session-item`;
 
-      if (isDateInPast(session.date)) {
+      if (isDateInPast(session.date, session.time)) {
         sessionDiv.classList.add("past-session");
       }
 
