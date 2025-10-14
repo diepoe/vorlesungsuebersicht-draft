@@ -1,0 +1,258 @@
+const MOCK_CLASS_SCHEDULES = {
+        WI24A3: {
+          id: "WI24A3",
+          title: "Wirtschaftsinformatik Software Engineering",
+          description: "Vollständiger Semesterplan für alle Module",
+          semester: "3. Semester WS 2025",
+          modules: [
+            {
+              id: "WEB",
+              name: "Webentwicklung",
+              professor: "Tessa Steinigke",
+              credits: 6,
+              color: "blue",
+            },
+            {
+              id: "DB",
+              name: "Datenbanksysteme",
+              professor: "Prof. Dr. Giacomo Welsch",
+              credits: 5,
+              color: "green",
+            },
+            {
+              id: "BWL",
+              name: "Betriebswirtschaftslehre",
+              professor: "Prof. Dr. Mueller",
+              credits: 4,
+              color: "orange",
+            },
+            {
+              id: "MATH",
+              name: "Statistik",
+              professor: "Prof. Dr. Markus Niedergesäss",
+              credits: 5,
+              color: "red",
+            },
+            {
+              id: "IT-MGMT",
+              name: "IT-Management",
+              professor: "Dr. Fischer",
+              credits: 4,
+              color: "purple",
+            },
+          ],
+          weeks: [
+            {
+              week: 1,
+              startDate: "2025-10-06",
+              sessions: [
+                {
+                  date: "2025-10-06",
+                  time: "9:00-12:15",
+                  module: "MATH",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-06",
+                  time: "13:15-16:30",
+                  module: "BWL",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-07",
+                  time: "9:00-12:15",
+                  module: "WEB",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-07",
+                  time: "13:15-16:30",
+                  module: "BWL",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-08",
+                  time: "10:30-12:15",
+                  module: "WEB",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-08",
+                  time: "13:15-15:45",
+                  module: "WEB",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-09",
+                  time: "9:00-12:15",
+                  module: "DB",
+                  room: "Online",
+                },
+                {
+                  date: "2025-10-09",
+                  time: "12:15-16:30",
+                  module: "DB",
+                  room: "Online",
+                },
+                {
+                  date: "2025-10-10",
+                  time: "08:00-09:30",
+                  module: "IT-MGMT",
+                  room: "C2.02",
+                },
+              ],
+            },
+            {
+              week: 2,
+              startDate: "2025-10-13",
+              sessions: [
+                {
+                  date: "2025-10-13",
+                  time: "9:00-12:15",
+                  module: "MATH",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-13",
+                  time: "12:15-16:30",
+                  module: "WEB",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-14",
+                  time: "08:00-09:30",
+                  module: "WEB",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-14",
+                  time: "10:00-11:30",
+                  module: "BWL",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-15",
+                  time: "08:00-09:30",
+                  module: "DB",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-15",
+                  time: "10:00-11:30",
+                  module: "MATH",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-16",
+                  time: "08:00-09:30",
+                  module: "WEB",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-17",
+                  time: "08:00-09:30",
+                  module: "IT-MGMT",
+                  room: "C2.02",
+                },
+              ],
+            },
+            {
+              week: 3,
+              startDate: "2025-10-20",
+              sessions: [
+                {
+                  date: "2025-10-20",
+                  time: "9:00-12:15",
+                  module: "BWL",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-21",
+                  time: "08:00-09:30",
+                  module: "WEB",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-21",
+                  time: "10:00-11:30",
+                  module: "BWL",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-22",
+                  time: "08:00-09:30",
+                  module: "DB",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-23",
+                  time: "08:00-09:30",
+                  module: "WEB",
+                  room: "C2.02",
+                },
+                {
+                  date: "2025-10-24",
+                  time: "08:00-09:30",
+                  module: "IT-MGMT",
+                  room: "C2.02",
+                },
+              ],
+            },
+          ],
+        },
+        WI23A2: {
+          id: "WI24A2",
+          title: "Wirtschaftsinformatik 5. Semester",
+          description: "Vertiefung Wirtschaftsinformatik",
+          semester: "5. Semester WS 2025/25",
+          modules: [
+            {
+              id: "ADV-DB",
+              name: "Advanced Databases",
+              professor: "Prof. Dr. Chen",
+              credits: 6,
+              color: "darkgreen",
+            },
+            {
+              id: "ML",
+              name: "Machine Learning",
+              professor: "Dr. Kim",
+              credits: 5,
+              color: "darkblue",
+            },
+            {
+              id: "PROJ",
+              name: "Projekt",
+              professor: "Prof. Dr. Wagner",
+              credits: 8,
+              color: "darkorange",
+            },
+          ],
+          weeks: [
+            {
+              week: 1,
+              startDate: "2025-10-07",
+              sessions: [
+                {
+                  date: "2025-10-07",
+                  time: "08:00-09:30",
+                  module: "ADV-DB",
+                  room: "A201",
+                },
+                {
+                  date: "2025-10-08",
+                  time: "10:00-11:30",
+                  module: "ML",
+                  room: "A202",
+                },
+                {
+                  date: "2025-10-09",
+                  time: "14:00-17:00",
+                  module: "PROJ",
+                  room: "Lab3",
+                },
+              ],
+            },
+          ],
+        },
+};
