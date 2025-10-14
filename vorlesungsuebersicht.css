@@ -331,34 +331,34 @@ button.calendar-control svg {
   text-align: center;
   padding: 2rem;
   font-size: 1.2rem;
-  color: var(--tandem-primary-600);
+  color: var(--color-primary-600);
 }
 
 .error {
   text-align: center;
   padding: 2rem;
   font-size: 1.2rem;
-  color: var(--tandem-primary-500);
-  background: var(--tandem-primary-100);
+  color: var(--color-primary-500);
+  background: var(--color-primary-100);
   border-radius: 8px;
-  border: 1px solid var(--tandem-primary-300);
+  border: 1px solid var(--color-primary-300);
 }
 
 .course-info {
-  background: var(--tandem-primary-100);
+  background: var(--color-primary-100);
   padding: 1rem;
   border-radius: 8px;
-  border: 1px solid var(--tandem-primary-300);
+  border: 1px solid var(--color-primary-300);
   margin-bottom: 2rem;
 }
 
 .course-info h2 {
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
   margin-bottom: 0.5rem;
 }
 
 .course-info p {
-  color: var(--tandem-primary-700);
+  color: var(--color-primary-700);
   margin-bottom: 1rem;
 }
 
@@ -366,26 +366,26 @@ button.calendar-control svg {
   display: flex;
   gap: 2rem;
   font-weight: bold;
-  color: var(--tandem-primary-600);
+  color: var(--color-primary-600);
 }
 
 /* Class View Styling */
 .class-info {
-  background: var(--tandem-primary-100);
+  background: var(--color-primary-100);
   padding: 1rem;
   border-radius: 8px;
-  border: 1px solid var(--tandem-primary-300);
+  border: 1px solid var(--color-primary-300);
   margin-bottom: 2rem;
 }
 
 .class-info h2 {
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
   margin-bottom: 0.5rem;
   flex-basis: 100%;
 }
 
 .class-info p {
-  color: var(--tandem-primary-700);
+  color: var(--color-primary-700);
   margin-bottom: 1rem;
 }
 
@@ -394,7 +394,7 @@ button.calendar-control svg {
   display: flex;
   gap: 0.5rem;
   font-weight: bold;
-  color: var(--tandem-primary-600);
+  color: var(--color-primary-600);
 }
 
 /* Accordion Styling */
@@ -407,7 +407,7 @@ button.calendar-control svg {
   margin-bottom: 1rem;
   overflow: hidden;
   border-radius: 8px;
-  border: 1px solid var(--tandem-primary-300);
+  border: 1px solid var(--color-primary-300);
 }
 
 .accordion-section.past-weeks-section {
@@ -416,7 +416,7 @@ button.calendar-control svg {
 }
 
 .accordion-header {
-  background: var(--tandem-primary-100);
+  background: var(--color-primary-100);
   padding: 1rem 1.5rem;
   cursor: pointer;
   display: flex;
@@ -427,22 +427,22 @@ button.calendar-control svg {
 }
 
 .accordion-header:hover {
-  background: var(--tandem-primary-200);
+  background: var(--color-primary-200);
 }
 
 .accordion-header h3 {
   margin: 0;
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
 }
 
 .accordion-toggle {
   font-size: 1.2rem;
-  color: var(--tandem-primary-600);
+  color: var(--color-primary-600);
   transition: transform 0.3s ease;
 }
 
 .accordion-toggle svg {
-  color: var(--tandem-primary-600);
+  color: var(--color-primary-600);
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -474,9 +474,9 @@ button.calendar-control svg {
 }
 
 .modules-overview h3 {
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
   margin-bottom: 1rem;
-  border-bottom: 2px solid var(--tandem-primary-300);
+  border-bottom: 2px solid var(--color-primary-300);
   padding-bottom: 0.5rem;
 }
 
@@ -489,26 +489,26 @@ button.calendar-control svg {
 
 .module-card {
   background: white;
-  border: 1px solid var(--tandem-primary-300);
-  border-left: 4px solid var(--tandem-primary-500);
+  border: 1px solid var(--color-primary-300);
+  border-left: 4px solid var(--color-primary-500);
   border-radius: 6px;
   padding: 1rem;
 }
 
 .module-name {
   font-weight: bold;
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
   margin-bottom: 0.5rem;
 }
 
 .module-details {
-  color: var(--tandem-primary-600);
+  color: var(--color-primary-600);
   font-size: 0.9rem;
   margin-bottom: 0.25rem;
 }
 
 .module-credits {
-  color: var(--tandem-primary-700);
+  color: var(--color-primary-700);
   font-size: 0.85rem;
   font-weight: bold;
 }
@@ -533,17 +533,17 @@ button.calendar-control svg {
 
 @media screen and (min-width: 993px) {
   .weeks-timeline {
-    border: 1px solid var(--tandem-primary-300);
+    border: 1px solid var(--color-primary-300);
     border-radius: 8px;
     padding: 1.5rem;
   }
 }
 
 .week-timeline h4 {
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--tandem-primary-200);
+  border-bottom: 2px solid var(--color-primary-200);
 }
 
 .sessions-container {
@@ -566,16 +566,16 @@ button.calendar-control svg {
 }
 
 .day-group {
-  background: var(--tandem-primary-100);
+  background: var(--color-primary-100);
   border-radius: 6px;
   padding: 1rem;
 }
 
 .day-group h5 {
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
   margin-bottom: 0.75rem;
   font-size: 1rem;
-  border-bottom: 1px solid var(--tandem-primary-300);
+  border-bottom: 1px solid var(--color-primary-300);
   padding-bottom: 0.25rem;
 }
 
@@ -584,7 +584,7 @@ button.calendar-control svg {
   border-radius: 4px;
   padding: 0.75rem;
   margin-bottom: 0.5rem;
-  border-left: 3px solid var(--tandem-primary-300);
+  border-left: 3px solid var(--color-primary-300);
   font-size: 0.85rem;
 }
 
@@ -597,54 +597,54 @@ button.calendar-control svg {
 }
 
 .session-item.vorlesung {
-  border-left-color: var(--tandem-primary-500);
+  border-left-color: var(--color-primary-500);
 }
 
 .session-item.praktikum {
-  border-left-color: var(--tandem-primary-400);
+  border-left-color: var(--color-primary-400);
 }
 
 .session-item.projekt {
-  border-left-color: var(--tandem-primary-600);
+  border-left-color: var(--color-primary-600);
 }
 
 .session-time {
   font-weight: bold;
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
   margin-bottom: 0.25rem;
 }
 
 .session-module {
   font-weight: bold;
-  color: var(--tandem-primary-700);
+  color: var(--color-primary-700);
   font-size: 1rem;
   margin-bottom: 0.25rem;
 }
 
 .session-topic {
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
   margin-bottom: 0.25rem;
 }
 
 .session-room {
-  color: var(--tandem-primary-600);
+  color: var(--color-primary-600);
   font-size: 0.8rem;
   margin-bottom: 0.25rem;
 }
 
 .session-assignment {
-  background: var(--tandem-primary-200);
+  background: var(--color-primary-200);
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
   font-size: 0.8rem;
   margin-top: 0.5rem;
 }
 
 .semester-overview h3 {
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid var(--tandem-primary-300);
+  border-bottom: 2px solid var(--color-primary-300);
   padding-bottom: 0.5rem;
 }
 
@@ -656,24 +656,24 @@ button.calendar-control svg {
 
 .week-block {
   background: white;
-  border: 1px solid var(--tandem-primary-300);
+  border: 1px solid var(--color-primary-300);
   border-radius: 8px;
   padding: 1rem;
 }
 
 .week-block h4 {
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--tandem-primary-200);
+  border-bottom: 1px solid var(--color-primary-200);
 }
 
 .week-item {
-  background: var(--tandem-primary-100);
+  background: var(--color-primary-100);
   border-radius: 6px;
   padding: 0.75rem;
   margin-bottom: 0.75rem;
-  border-left: 4px solid var(--tandem-primary-300);
+  border-left: 4px solid var(--color-primary-300);
 }
 
 .week-item:last-child {
@@ -681,36 +681,36 @@ button.calendar-control svg {
 }
 
 .week-item.lecture {
-  border-left-color: var(--tandem-primary-500);
+  border-left-color: var(--color-primary-500);
 }
 
 .week-item.practical {
-  border-left-color: var(--tandem-primary-400);
+  border-left-color: var(--color-primary-400);
 }
 
 .item-date {
   font-size: 0.9rem;
-  color: var(--tandem-primary-600);
+  color: var(--color-primary-600);
   margin-bottom: 0.25rem;
 }
 
 .item-topic {
   font-weight: bold;
-  color: var(--tandem-primary-800);
+  color: var(--color-primary-800);
   margin-bottom: 0.25rem;
 }
 
 .item-type {
   font-size: 0.85rem;
-  color: var(--tandem-primary-700);
+  color: var(--color-primary-700);
   text-transform: capitalize;
   margin-bottom: 0.25rem;
 }
 
 .item-assignment {
   font-size: 0.85rem;
-  color: var(--tandem-primary-600);
-  background: var(--tandem-primary-200);
+  color: var(--color-primary-600);
+  background: var(--color-primary-200);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   margin-top: 0.5rem;

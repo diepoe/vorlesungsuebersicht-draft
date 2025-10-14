@@ -268,13 +268,13 @@
   --color-white: #fff;
 
   /* DHBW theme colors */
-  --tandem-primary-100: #fde6ea;
-  --tandem-primary-200: #f8c9d0;
-  --tandem-primary-300: #f2aab5;
-  --tandem-primary-400: #eb8b99;
-  --tandem-primary-500: #c8102e;
-  --tandem-primary-600: #a50d26;
-  --tandem-primary-700: #7f0a1d;
-  --tandem-primary-800: #5a0714;
-  --tandem-primary-900: #35050c;
+  --color-primary-100: var(--color-sky-100);
+  --color-primary-200: var(--color-sky-200);
+  --color-primary-300: var(--color-sky-300);
+  --color-primary-400: var(--color-sky-400);
+  --color-primary-500: var(--color-sky-500);
+  --color-primary-600: var(--color-sky-600);
+  --color-primary-700: var(--color-sky-700);
+  --color-primary-800: var(--color-sky-800);
+  --color-primary-900: var(--color-sky-900);
 }
