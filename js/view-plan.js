@@ -38,14 +38,18 @@ function renderModules(modules) {
     moduleDiv.style.borderLeftColor = module.color;
 
     moduleDiv.innerHTML = `
-        <div class="module-name">${module.name}</div>
-        ${
-          module.professor !== "UNKNOWN"
-            ? `<div class="module-details">${module.professor}</div>`
-            : ""
-        }
-        <div class="module-credits">${module.credits} ECTS</div>
-        `;
+      <div class="module-name">${module.name}</div>
+      ${
+        module.professor !== "UNKNOWN"
+        ? `<div class="module-details">${module.professor}</div>`
+        : ""
+      }
+      ${
+        module.credits > 0
+        ? `<div class="module-credits">${module.credits} ECTS</div>`
+        : ""
+      }
+      `;
 
     container.appendChild(moduleDiv);
   });
@@ -65,6 +69,7 @@ function renderClassWeeks(weeks, modules) {
     const pastWeeksHeader = document.createElement("div");
     pastWeeksHeader.className = "accordion-header collapsed";
     pastWeeksHeader.setAttribute("data-target", "past-weeks-content");
+    pastWeeksHeader.id = "past-weeks-header"
 
     const pastWeeksTitle = document.createElement("h4");
     pastWeeksTitle.textContent = `Vergangene Wochen (${pastWeeks.length})`;

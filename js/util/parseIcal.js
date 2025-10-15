@@ -60,7 +60,7 @@ function extractModulesFromEvents(icalEvents) {
         id: moduleCode,
         name: moduleCode,
         professor: "UNKNOWN", // TODO: map professor/teacher from separatly fetched module dataset
-        credits: 5,
+        credits: -1,
         color: moduleColors[colorIndex % moduleColors.length],
       });
       colorIndex++;
