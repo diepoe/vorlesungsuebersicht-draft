@@ -1,4 +1,4 @@
-import ICAL from "https://unpkg.com/ical.js/dist/ical.min.js";
+import ICAL from "../dist/ical.min.js";
 import { getWeekStart, getWeekNumber } from "./dates.js";
 import { formatEventTime } from "./formatters.js";
 
