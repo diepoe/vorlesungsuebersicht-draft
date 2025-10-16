@@ -354,7 +354,7 @@ button.calendar-control svg {
 }
 
 .course-info h2 {
-  color: var(--color-primary-800);
+  color: var(--color-primary-700);
   margin-bottom: 0.5rem;
 }
 
@@ -373,19 +373,24 @@ button.calendar-control svg {
 /* Class View Styling */
 .class-info {
   background: var(--color-surface);
+  color: var(--color-primary-700);
   padding: 1rem;
   border: 2px solid var(--color-border);
   margin-bottom: 2rem;
 }
 
+@media (prefers-color-scheme: dark) {
+  .class-info {
+    color: var(--color-text);
+  }
+}
+
 .class-info h2 {
-  color: var(--color-primary-800);
   margin-bottom: 0.5rem;
   flex-basis: 100%;
 }
 
 .class-info p {
-  color: var(--color-primary-700);
   margin-bottom: 1rem;
 }
 
@@ -394,7 +399,6 @@ button.calendar-control svg {
   display: flex;
   gap: 0.5rem;
   font-weight: bold;
-  color: var(--color-primary-600);
 }
 
 /* Accordion Styling */
@@ -425,6 +429,13 @@ button.calendar-control svg {
   align-items: center;
   transition: background-color 0.3s ease;
   user-select: none;
+  color: var(--color-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  .accordion-header {
+    color: var(--color-text);
+  }
 }
 
 .accordion-header:hover {
@@ -433,7 +444,6 @@ button.calendar-control svg {
 
 .accordion-header h3 {
   margin: 0;
-  color: var(--color-primary-800);
 }
 
 .accordion-toggle {
@@ -443,15 +453,17 @@ button.calendar-control svg {
 }
 
 .accordion-toggle svg {
-  color: var(--color-primary-600);
+  color: var(--info-text);
   width: 1.5rem;
   height: 1.5rem;
 }
 
+
+
 .accordion-content {
   transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
   overflow: hidden;
-  background: white;
+  background: var(--color-inverse);
 }
 
 .accordion-content.expanded {
@@ -464,11 +476,10 @@ button.calendar-control svg {
   padding: 0 1rem;
 }
 
-#past-weeks-header {
-  background: var(--info-bg);
-}
+
 #past-weeks-content {
-  border: 2px solid var(--info-bg);
+  border: 2px solid var(--color-primary);
+  border-top: 0px;
 }
 
 .modules-overview {
@@ -499,7 +510,7 @@ button.calendar-control svg {
 
 .module-name {
   font-weight: bold;
-  color: var(--color-primary-800);
+  color: var(--color-primary-700);
   margin-bottom: 0.5rem;
 }
 
@@ -528,7 +539,7 @@ button.calendar-control svg {
 }
 
 .week-timeline {
-  background: white;
+  background: var(--color-inverse);
   border: none;
   padding: 0.5rem;
 }
@@ -546,6 +557,10 @@ button.calendar-control svg {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--color-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  .week-timeline h4 {color: var(--color-text);}
 }
 
 .sessions-container {
@@ -574,11 +589,17 @@ button.calendar-control svg {
 }
 
 .day-group h5 {
-  color: var(--color-primary-600);
+  color: var(--color-primary);
   margin-bottom: 0.75rem;
   font-size: 1rem;
   border-bottom: 1px solid var(--color-primary);
   padding-bottom: 0.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .day-group h5 {
+    color: var(--color-text);
+  }
 }
 
 .session-item {
@@ -595,7 +616,7 @@ button.calendar-control svg {
 }
 
 .session-item.past-session {
-  opacity: 0.5;
+  opacity: 0.65;
 }
 
 .session-item.vorlesung {
@@ -612,7 +633,7 @@ button.calendar-control svg {
 
 .session-time {
   font-weight: bold;
-  color: var(--color-primary-800);
+  color: var(--color-primary-700);
   margin-bottom: 0.25rem;
 }
 
@@ -624,7 +645,7 @@ button.calendar-control svg {
 }
 
 .session-topic {
-  color: var(--color-primary-800);
+  color: var(--color-blue-800);
   margin-bottom: 0.25rem;
 }
 
@@ -638,13 +659,13 @@ button.calendar-control svg {
   background: var(--color-primary-200);
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
-  color: var(--color-primary-800);
+  color: var(--color-primary-700);
   font-size: 0.8rem;
   margin-top: 0.5rem;
 }
 
 .semester-overview h3 {
-  color: var(--color-primary-800);
+  color: var(--color-primary-700);
   margin-bottom: 1.5rem;
   border-bottom: 2px solid var(--color-primary-300);
   padding-bottom: 0.5rem;
@@ -671,7 +692,7 @@ button.calendar-control svg {
 }
 
 .week-item {
-  background: var(--color-surface);
+  background: var(--color-inverse);
   border-radius: 6px;
   padding: 0.75rem;
   margin-bottom: 0.75rem;
@@ -698,7 +719,7 @@ button.calendar-control svg {
 
 .item-topic {
   font-weight: bold;
-  color: var(--color-primary-800);
+  color: var(--color-primary-700);
   margin-bottom: 0.25rem;
 }
 
